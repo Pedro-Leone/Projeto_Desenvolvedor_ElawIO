@@ -39,5 +39,3 @@ AngularJS: Torna a página mais interativa e dinâmica.
 jQuery: Manipula eventos e atualizações da página sem recarregamento.
 
 HTML e CSS: Estrutura e estilo para a aparência da página.
-
- PagedList: Para dividir e exibir grandes conjuntos de dados em págin
