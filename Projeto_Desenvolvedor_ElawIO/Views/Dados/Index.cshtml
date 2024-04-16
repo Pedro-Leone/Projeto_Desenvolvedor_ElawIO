@@ -1,0 +1,78 @@
+﻿@using Projeto_Desenvolvedor_ElawIO.Models.Cadastro;
+@using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
+
+@model IEnumerable<Dados>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Lista de Dados</h1>
+
+<div class="action-links" style="margin-bottom: 20px">
+    <a asp-action="Criar" class="btn btn-primary">Criar</a>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="filter-section">
+        <select id="tipoFiltro" name="tipoFiltro" onchange="mudarFiltro()" class="form-control">
+            <option value="0">Escolha um filtro:</option>
+            <option value="1">Nome</option>
+            <option value="2">Email</option>
+            <option value="3">Data</option>
+        </select>
+
+        @using (Html.BeginForm("Index", "GetEmp", FormMethod.Post))
+        {
+            <span id="campoFiltro"></span>
+            <input type="submit" value="Pesquisar" class="btn btn-primary" />
+        }
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.ActionLink("Nome", "Index", new { filtroOrdem = ViewBag.OrdemNome }, new { @class = "text-decoration-none" })</th>
+            <th>@Html.ActionLink("E-Mail", "Index", new { filtroOrdem = ViewBag.OrdemEmail }, new { @class = "text-decoration-none" })</th>
+            <th>@Html.ActionLink("Data Cadastro", "Index", new { filtroOrdem = ViewBag.OrdemData }, new { @class = "text-decoration-none" })</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@item.Data_Cadastro.ToString("dd/MM/yyyy")</td>
+                <td style="text-align: right;">
+                    <a asp-action="Editar" asp-route-id="@item.Id" class="btn btn-primary">Editar</a>
+                    <a asp-action="Detalhes" asp-route-id="@item.Id" class="btn btn-secondary">Detalhes</a>
+                    <a asp-action="Deletar" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        function mudarFiltro() {
+            var tipoFiltro = document.getElementById('tipoFiltro').value;
+            var campoFiltro = document.getElementById('campoFiltro');
+
+            if (tipoFiltro == "3") {
+                campoFiltro.innerHTML = ' <input type="date" name="data" class="form-control" />';
+            }
+            else if (tipoFiltro == "0"){
+                campoFiltro.innerHTML = "";
+            }
+            else {
+                campoFiltro.innerHTML = '<input type = "text" name = "busca" class="form-control"  placeholder="Digite aqui para pesquisar"/> ';
+            }
+            
+        }
+    </script>
+}

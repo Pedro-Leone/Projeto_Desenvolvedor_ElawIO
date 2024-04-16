@@ -1,0 +1,24 @@
+﻿CREATE DATABASE Projeto_Desenvolvedor_ElawIO
+GO
+
+USE Projeto_Desenvolvedor_ElawIO;
+
+CREATE TABLE [dbo].[Dados](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] [nvarchar](max) NULL,
+	[Email] [nvarchar](max) NULL,
+	[Data_Cadastro] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_Dados] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+INSERT INTO Dados (Nome, Email, Data_Cadastro) VALUES ('João Silva', 'joao@email.com', GETDATE());
+INSERT INTO Dados (Nome, Email, Data_Cadastro) VALUES ('Maria Souza', 'maria@email.com', GETDATE());
+INSERT INTO Dados (Nome, Email, Data_Cadastro) VALUES ('Pedro Santos', 'pedro@email.com', GETDATE());
+INSERT INTO Dados (Nome, Email, Data_Cadastro) VALUES ('Ana Oliveira', 'ana@email.com', GETDATE());
+INSERT INTO Dados (Nome, Email, Data_Cadastro) VALUES ('Carlos Pereira', 'carlos@email.com', GETDATE());
+INSERT INTO Dados (Nome, Email, Data_Cadastro) VALUES ('Mariana Lima', 'mariana@email.com', GETDATE());
+GO

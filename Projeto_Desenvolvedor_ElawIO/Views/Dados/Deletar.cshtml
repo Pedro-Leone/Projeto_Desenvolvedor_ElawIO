@@ -1,0 +1,47 @@
+﻿@using Projeto_Desenvolvedor_ElawIO.Models.Cadastro;
+@model Dados
+
+@{
+    ViewData["Title"] = "Deletar";
+}
+
+<h1>Deletar</h1>
+
+<div class="confirmation-container">
+    <h3>Certeza que deseja excluir este cadastro?</h3>
+    <div class="data-details">
+        <h4>Dados</h4>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Data_Cadastro)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Data_Cadastro)
+            </dd>
+        </dl>
+    </div>
+
+    <form asp-action="Delete" class="delete-form">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

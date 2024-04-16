@@ -1,0 +1,76 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+input[type="text"],
+select,
+input[type="email"] {
+    width: 400px; 
+    padding: 5px;
+    margin-bottom: 10px; 
+}
+
+table {
+    width: 100%; 
+    margin-bottom: 20px; 
+    border-collapse: collapse; 
+}
+
+.btn {
+    margin-right: 10px; 
+}
+
+.filter-section {
+    margin-bottom: 20px; 
+}
+
+h1 {
+    margin-bottom: 20px; 
+}
+
+
+.action-links {
+    text-align: right;
+}
+
+
+.filter-section select {
+    width: auto;
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 150px;
+}
+
+.filter-section input[type="submit"] {
+    margin-top: 10px;
+}
+
+.filter-section input[type="date"], input[type="text"] {
+    width: 400px; 
+    padding: 8px 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    background-color: #fff; 
+    font-size: 14px; 
+}
